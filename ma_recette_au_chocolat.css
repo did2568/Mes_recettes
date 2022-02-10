@@ -1,0 +1,346 @@
+/*Ici commence le code CSS
+<!-- on désigne le block à modifier body ==> 
+    background-color:#8BA1BB == body couleur de fond
+    font-family:Arial ==Police de caractères pour tout le document
+
+    on désigne le block à modifier p (paragraphe)==> 
+    background-color:#000000;(NB: noir = #000000, blanc =#FFFFFF)
+    color:#FFFFFF; ==> police de caractères en blanc 
+    NB: ces propriétés s'appliqueront à tous les paragraphes du document
+    On va devoir utiliser les SELECTEURS : 
+    Id : pour un seul élément
+    Class : pour plusieurs éléments*/
+
+    *{
+        overflow:auto;
+        
+    /* les déclarations génériques==> Conseillé de les placer en début de document .Pour explications voir en fin du document*/ 
+    }
+
+body {
+    background-color:#8BA1BB;
+    font-family:Arial;
+    margin:0
+
+}
+.centre{
+
+    text-align: center;
+    width:100%;
+
+
+}
+p.categorie {
+
+    
+    background-color:black;
+    color:#FFFFFF;
+    /* exercice 286 pour centrer le texte au centre*/
+    display:inline-block;
+     /* réglage de la marge supérieure ==> margin-top:0px; cette marge a été déplacée de p.categorie vers div.categorie */
+    margin-top: -15px;
+    
+    margin-bottom:0px;
+    padding:8px 18px;
+    /* réglage du texte ==> bold = gras*/
+    font-weight:bold;
+     /* réglage du texte ==> size = taille*/
+    font-size:16px;
+    
+  
+}
+div.categorie{
+/*  il s'agit de faire chevaucher le cadre (Recette ) sur le cadre blanc */
+
+/*COURS 297  Modification du rectangle Noir Recette 
+il sera intégré dans le contenu donc ==>margin-bottom: -18px; est modifié et margin-top:60px; */ 
+    margin-bottom: 0px;
+     /* réglage de la marge supérieure ==> margin-top:60px; cette marge a été déplacée de p.categorie vers div.categorie  */
+    margin-top:0px;
+    overflow:visible;
+
+}
+
+
+div.contenu {
+
+    background-color:#FFFFFF;
+    /*COURS 297  Modification du rectangle Noir Recette 
+il sera intégré dans le contenu donc ==>margin:0px 10% 80px 10%; est modifié==>  margin:60px 10% 80px 10%;*/ 
+    margin:60px 10% 80px 10%;
+    padding:0px 30px 30px 30px;
+    /*min-width: 600px; ==> il s'agit d'une dimension min pour éviter le chevauchement des éléments en cas de réduction de l'écran */
+    min-width: 600px;
+    box-shadow: inset 0 0 1em white, 0 0 2em lightgray;
+    overflow:visible;
+
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 12px;
+    margin-top: 10px
+
+}
+p.description {
+
+    max-width: 400px;
+
+    text-align: center;
+    /* permet l'affichage en tenant compte de la marge*/
+    display:inline-block;
+    font-size: 14px;
+
+}
+
+div.separateur{
+
+    width: 100px;
+    height: 1px;
+    background-color: black;
+    /* Le centrage de la ligne pose un problème qui peut être résolu par une mise en auto des marges droite et gauche */
+    margin-left:auto;
+    margin-right:auto;
+
+}
+div.infos{
+
+    position:relative;
+
+}
+table.infos{
+
+    
+    position:absolute;
+    bottom:0px;
+    width:100%;
+    color:white; 
+    background:#6C8290C0; 
+    height:80px;
+
+
+}
+table.infos td{
+
+    text-align:center;
+    font-size: 14px;
+    vertical-align: top;
+
+}
+table.infos th{
+
+    text-align:center;
+    font-size: 16px;
+    vertical-align:bottom;
+    padding-bottom:8px;
+
+}
+img.info{
+    display:block;
+    max-height:400px;
+    /* object-fit:cover; est une propriété qui garde au maximum les proportions de l'image en cas d'agrandissement :border: ;
+        object-fit : none; aucun ajustement de la taille
+
+        object-fit : fill; l'élément est étiré  pour remplir toutes la zone de contenu de son conteneur.
+
+        object-fit : cover;l'élément est dimensionné pour remplir toute la zone de contenu de son conteneur tout en gardant son rapport hauteur /largeur. Si l'élément est plus grand que la zone de contenu, il est rogné
+        
+        object-fit : contain;l'élément est dimensionné pour être contenu dans la zone de contenu de son conteneur tout en gardant son rapport hauteur /largeur.
+
+        object-fit : scale-down; l'élément est dimensionné comme si none ou contain étaient spécifiés, la dimension la plus petite est appliquée.
+
+        inherit : hérite de la propriété CSS object-fit de son parent.
+    
+    
+    */
+    object-fit:cover;
+
+    /* afin de temporiser ou de supporter un temps de chargement inhabituel sur le net d'un document : image,... on peut réserver la zone de chargement avec min-height:200px;*/ 
+    min-height:200px;
+
+}
+
+.colonne{ /* parties communes aux 2 colonnes*/
+    /* Occupe 50% de la place  width:50%*/
+    /* Cours 293 on augmente la marge du haut margin-top:20px; 
+    On réduit l'occupation des colonnes à 2 x 45% il nous reste donc 10% pour réaliser un espace entre les deux colonnes
+    */
+    width:45%;
+    margin-top:20px;
+
+
+}
+div.colonne h2{
+    /* Cours 293 on cible le h2 de chaque table et on centre le titre h2, ensuite on passe le texte h2 en majuscules==>text-transform:uppercase  
+    nouvelle propriété ==> border:10px solid black;
+    on espace en finalité cette bordure vis à vis du texte de 5px
+        ==>padding-bottom:5px ;
+
+
+
+    */
+    text-align:center;
+    text-transform:uppercase;
+    font-size: 15px;
+    border-bottom:5px solid #6C8290;
+
+    padding-bottom:5px ;
+
+}
+div.colonneIng{
+   
+    
+    /* Laisse la place à coté de toi ! display:inline-block*/
+    display:inline-block;
+    /* Cours 293 
+    On réduit l'occupation des colonnes à 2 x 45% il nous reste donc 10% pour réaliser un espace entre les deux colonnes que l'on place en marge droite de la colonne ingrédients ==>margin-right:10%;*/
+    margin-right:10%;
+
+
+
+}
+div.colonnePré{
+    /* Affiche cette colonne à droite ==> float:right;*/
+    float:right;
+    
+}
+div.bordureIng p{
+    /* Exercice 294 bordure des ingrédients
+    transformation de ul en div avec classe bordureIng
+    transformation des li en p */
+    text-align:center;
+    font-size: 14px;
+   
+    border:1px solid lightgray;
+    margin-top:4px;
+    margin-bottom:0;
+
+    padding: 8px 0;
+    
+}
+table.tablePré p.numero{
+    background-color: #6C8290;
+    color:white;
+    width:25px;
+    height:25px;
+    text-align:center;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top:4px ;
+    /* le souci avec le cumul marge intérieure( padding ) et la hauteur (height) ,c'est que CSS comprend qu'il faut additionner la hauteur et la marge  la solution est de passer par la propriété : box-sizing:border-box qui va calculer différemment mais en gardant la hauteur (height)
+    - L'effet d'arrondi s'obtient avec border-radius qui va appliquer un arrondi ( en px ou en % )dans les angles de la bordure du rectangle */
+
+    box-sizing:border-box;
+    border-radius: 50%; /* 50% donnera une sphère */
+    margin:0;
+
+    }
+table.tablePré td{
+
+        vertical-align:top;
+    }
+table.tablePré td.preparationEtap{
+        font-size: 14px;
+        padding-left:10px;
+        padding-bottom:10px;
+
+    }
+table.tablePré tr{
+    height:40px;
+}
+
+
+
+/*COURS 296 :
+
+Une classe *{} comme ci-dessous définit des propriétés qui s'appliqueront au document entier 
+
+Le problème du document est que si la colonne de droite définie( float:right ) déborde en matière d'éléments et comme elle n'est pas prioritaire ces éléments déborderont ;
+La solution est de définir une propriété : overflow à auto applicable au document entier 
+
+La propriété CSS overflow est une propriété raccourcie qui définit comment gérer le dépassement du contenu d'un élément dans son bloc. Elle définit les valeurs des propriétés overflow-x et overflow-y.
+
+Valeurs avec un mot-clé 
+overflow: visible; La valeur par défaut. Le contenu n'est pas rogné. Le contenu peut éventuellement être affiché en dehors de la boîte de remplissage (padding).
+
+
+overflow: hidden;Le contenu est rogné si besoin pour s'inscrire dans la boîte de remplissage (padding) et aucune barre de défilement n'est affichée.
+
+overflow: clip;Se comporte comme hidden au sens où le contenu est rogné pour s'inscrire dans la boîte de remplissage. Comme hidden, clip ne présente pas de barre de défilement mais contrairement à hidden, clip empêche tout défilement, y compris à l'aide de scripts. La boîte n'est pas un conteneur de défilement et ne définit pas de nouveau contexte de formatage. Si on souhaite obtenir un nouveau contexte de formatage, il faudra utiliser display: flow-root. Certains navigateurs ne prennent pas encore cette fonctionnalité en charge.
+
+overflow: scroll;Le contenu est rogné pour s'inscrire dans la boîte de remplissage (padding) et les navigateurs de bureau affichent des barres de défilement dans tous les cas. Cela évite d'avoir des barres qui apparaissent et disparaissent sans cesse avec du contenu dynamique. Les imprimantes peuvent éventuellement imprimer le contenu qui dépasse.
+
+
+overflow: auto;Le comportement est laissé à la discrétion de l'agent utilisateur. Les navigateurs comme Firefox affichent des ascenseurs si le contenu dépasse dans la boîte de remplissage (padding)
+overflow: hidden visible;
+
+overlay 
+Cette valeur se comporte comme auto sauf que les barres de défilement sont au-dessus du contenu plutôt que de prendre de la place. Cette valeur est uniquement prise en charge par les navigateurs basés sur WebKit (Safari) ou Blink (Chrome, Opera).
+
+
+Valeurs globales 
+overflow: inherit;
+overflow: initial;
+overflow: unset;
+*/
+
+/* COURS 297 ( offset==> décalage )
+box-shadow
+La propriété CSS box-shadow ajoute des ombres à la boîte d'un élément via une liste d'ombres séparées par des virgules. Une boîte d'ombre est définie avec des décalages horizontal et vertical par rapport à l'élément, avec des rayons de flou et d'étalement et avec une couleur.
+Elle permet de projeter une ombre depuis un élément. Si une border-radius est définie sur l'élément avec l'ombre, la boîte de l'ombre prendra les mêmes arrondis. L'ordre des couches (z order) pour plusieurs ombres sera le même que pour les ombres texte (la première ombre est sur le dessus).
+
+Le générateur de box-shadow est un outil interactif qui permet de générer des valeurs pour box-shadow.
+
+Valeurs
+inset
+Si la valeur n'est pas définie (le cas par défaut), l'ombre sera une ombre portée (comme si la boîte était élevée au-dessus du contenu). La présence du mot-clé inset modifie l'ombre afin qu'elle soit tournée vers l'intérieur du cadre (comme si le contenu était enfoncé dans la boîte). Les ombres tournées vers l'intérieur sont dessinées à l'intérieur de la bordure (même les transparentes), au-dessus de l'arrière-plan mais sous le contenu.
+
+<offset-x> <offset-y>
+Deux valeurs de longueur (<length> qui permettent de définir le décalage de l'ombre. <offset-x> définit la distance horizontale du décalage et les valeurs négatives placeront l'ombre à gauche de l'élément. <offset-y> définit la distance verticale et les distances négatives placent l'ombre au-dessus de l'élément (cf. <length> pour les différentes unités possibles). Si les deux valeurs sont 0, l'ombre est placée derrière l'élément (et peut générer un effet de flou si <blur-radius> et/ou <spread-radius> est utilisé).
+
+<blur-radius>
+Une troisième valeur de longueur (<length>). Plus cette valeur sera grande, plus le flou de l'ombre sera diffus : l'ombre sera donc plus étalée et plus légère. Les valeurs négatives ne sont pas autorisées. Si la valeur n'est pas définie, sa valeur par défaut est 0 (le côté de l'ombre est rectiligne).
+
+<spread-radius>
+Une quatrième valeur de longueur (<length>). Les valeurs positives étaleront l'ombre et les valeurs négatives rétréciront l'ombre. Si elle n'est pas définie, la valeur par défaut est 0 (l'ombre aura la même taille que l'élément).
+
+<color>
+Une valeur de couleur (<color>). Si la valeur n'est pas définie, la couleur utilisée dépend du navigateur ce sera généralement la propriété color mais Safari affiche une ombre transparente.
+
+ EXEMPLES 
+CSS
+p {
+  height: 5em;
+  width: 300px;
+  background-color: rgba(128,128,128,0.1);
+}
+.ombre_droite_haut {
+  box-shadow: 60px -16px teal; /* la valeur négative décale vers le haut 
+}
+
+.ombre_interieure {
+  box-shadow: inset 5em 1em gold;
+  /* le mot-clé inset renverse l'ombre à l'intérieur 
+}
+
+.ombres_multiples_diffuses {
+  box-shadow: inset 0 0 1em gold, 0 0 2em red;
+  /* deux ombres dans la liste et des rayons de flou pour chacune 
+}
+
+HTML
+<p class="ombre_droite_haut">Déportée dans l'autre sens</p>
+
+<p class="ombre_interieure">L'ombre est dans le contenu !</p>
+
+<p class="ombres_multiples_diffuses">Du rouge dehors et du doré dedans</p>
+
+*/
+
+
+
+
+
+
+
+
