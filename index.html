@@ -1,0 +1,282 @@
+
+<!DOCTYPE html><!--il s'agit d'un code imposé pour définir un document html A NE PAS OUBLIER --> 
+
+<html lang="fr">
+    <!-- lang est la propriété qui précise la langue utilisée dans le document-->
+    <!-- les balises fonctionnent sur un principe de parent / enfant par exemple :la balise a deux enfants ( head et body) 
+                : la balise body a plusieurs enfants ( h1, p, pre,...)
+    -->
+    <head>
+        <!-- title est une balise qui va nommer l'onglet de la page-->
+        <title> Gateau au chocolat</title>
+        <!-- meta charset est une balise qui impose un encodage de caractères on dit que charset est une propriété -->
+        <meta charset="UTF-8">
+
+        <!--Il s'agit de mettre en relation le fichier style css avec le fichier html-->
+        <link rel="stylesheet" href="ma_recette_au_chocolat.css"/>
+        
+        
+    </head>
+
+    <body> 
+
+        <!--Ici commence le code CSS: 
+
+            ASTUCE DANS VISUAL STUDIO CODE , la combinaison des touches : Controle Espace affichera toutes les valeurs associées à une propriété. 
+            Les commentaires en CSS sont encadrés par /*      */
+
+            LES ID :
+
+                <p Id="nom arbitraire" (id="categorie") l'Id sera renvoyé au style p{} du bloc head ci dessus et sera désigné avec un dièse  p#categorie
+                NB: le Id="categorie" peut désigner d'autres blocs 
+                par exemple , on pourrait retrouver cet Id à une liste==> <ul id="categorie"> ATTENTION Dans ce cas le sélecteur identifié dans style deviendra #categorie et non plus p#categorie
+
+            LES CLASSES :
+
+                Les classes (class) sont utilisées de la même façon que les id (id) . dans les blocs, au lieu de marquer id , on marque class. Les classes sont plus utilisées que les id , Les classes permettent de réutiliser les styles dans plus d'éléments.
+                Au lieu d'utiliser le caractère dièse du id (#) on utilisera le point (.)
+
+                Exemple:
+
+                        - Dans bloc : 
+                        
+                                <p class="categorie">Recette</p> 
+
+                        - Dans style (head):
+
+                            .categorie {
+                                background-color:#000000;
+                                color:#FFFFFF;}
+
+
+                IMPORTANT : Dans style du bloc head, on peut faire appliquer des propriétés à différents blocs: 
+
+                Exemples: 
+                        - p.catégorie ==> "catégorie" s'appliquera aux paragraphes (p)
+
+                        - p.catégorie,h1 ==> "catégorie" s'appliquera aux paragraphes(p) et aux titres (h1 identifiés par la class ="categorie")
+
+                        - p.catégorie,h1.catégorie ==> "catégorie" s'appliquera aux paragraphes(p) et aux titres (h1)mais uniquement ceux qui sont identifiés par la class ="categorie")
+
+            LE MARGING : marge extérieure de l'affichage par rapport au document
+            La propriété margin peut s'appliquer à droite, à gauche, en haut , en bas : margin-right, margin-left,margin-bottom, margin-top
+            ou à tout le document : margin suivi d'un nombre de pixels.
+
+                Exemples:
+                        - margin-left : 60px ==> marge à gauche de 60 pixels
+                        
+                        - margin : 30 px ==> marges Haut, bas, droite, gauche de 30 pixels.
+
+                        - marging :30px 100px  ==> marges de 30 pixels en haut et en bas ( vertical) et 100px à droite et à gauche (horizontal)
+
+                        -marging : 60px 100px 200px 10px ==> marges de 60 pixels en haut, 100 pixels à droite, 200 pixels en bas et 10 pixels à gauche  ( Haut, Droite, Bas, Gauche)
+
+                        -marging: 60px 10% 200px 10% ==> on peut ajuster la marge en fonction de la fenêtre : en pourcentage 
+
+
+
+            LE PADDING : marge intérieure pour réduire le contenu du document
+            il s'agit d'un retrait à l'interieur , et la formulation de la propriété est identique à margin.
+
+                Exemple :
+                        - padding: 30px
+
+            la propriété : max_width indique la largeur maximum : ne depasse pas par exemple : max_width: 400px
+
+            Le centrage d'un texte est possible avec l'encadrement du texte par une balise <div> et la propriété display (cours 284)
+
+            La propriété display peu prendre plusieurs valeurs :
+
+                display : block ==> le paragraphe utilisera toute la ligne
+            
+                display : inline ==>  le paragraphe utilisera uniquement la place necessaire , laissant la place aux autres élements ;
+                REMARQUE : Dans ce mode , on ne contrôle pas les marges  
+                        
+                display : inline-block ==> dans ce mode , on contrôle les marges
+
+       
+         
+        La balise <div > est utilisée comme délimiteur (tout le document sauf le paragraphe(recette, ci dessus)) et completée d'une classe de style "contenu"-->
+
+
+        <!-- La propriété align ="center" provoque la mise au centre du titre 
+        -->
+
+        <div class="contenu">
+
+            <!-- COURS 297 Le problème de notre rectangle noir contenant Recette chevauchant par moitié le document contenu est parfois décalé lors du réajustement de la taille de fenêtre , il était jusqu'à maintenant en ddehors du contenu , on va le passer dans contenu
+            
+            -->
+            <div class="centre categorie"> 
+                <!--exercice 286 pour centrer le texte au centre on peut utiliser une classe déjà crée:
+                div.centre { text-align: center;} mais on peut ajouter une autre classe div (div.categorie) .Cette classe pourra positionner le cadre en même temps que le centrage  -->
+               <p class="categorie">Recette</p>   
+           </div>
+            <h1>Gateau au chocolat </h1> 
+
+            <!-- LE CONTENU DE MA PAGE -->
+            <!--la propriété style = color:"red" provoque la coloration du texte en rouge;
+            cette propriété style est une particularité du CSS in Line , on peut ajouter des propriétés 
+            à la suite de point virgules==> style="color:red; background-color:yellow "-->
+            
+            <div class="centre">
+                <!-- cette balise <div class="description"> va nous permettre de centrer le texte ci dessous -->
+               
+                <!-- EXERCICE 287 : Ajouter un séparateur 
+                       <hr size="8px" align="center" width="100%"> CE n'est pas la solution !
+                    Mise en place d'une balise div avec une classe separateur
+                    <div class="separateur">
+                        dans la classe separateur:
+
+                        - utilisation des marges placées en "auto" de droite et gauche 
+                        - réduction des marges de h1
+                
+                
+                    -->
+            <div class="separateur">
+            </div>
+
+
+            <p class="description">"Cette recette facile de gateau au chocolat est un grand classique. Elle fera plaisir aux plus gourmands."      
+                </p>
+            </div>
+            
+            <br>
+            <!-- la balise img provoque l'affichage d'une image, cette balise n'a pas de balise de fin, elle contient  la source (src="")-->
+            
+            <!-- EXERCICE 288 : Positionner l'image et la table:
+                - Positionner l'image : il s'agit d'utiliser la classe centre initialement prévue pour centrer le texte:
+                        <img class="centre" src="gateau.jpg">
+
+                - rendre générique la classe : passer div.centre à .centre 
+
+                         .centre{
+
+                                text-align: center;
+                                width:100%;
+                                }
+
+                - Ajouter width:100% qui veut dire que tout élément profitera de 100% de la place à occuper.
+
+                SUPERPOSER la table dans l'image: 
+
+                    - Placer l'image et la table dans une balise div , de façon à les lier
+
+                    - Utiliser la propriété position :
+
+                                - Types de position :
+
+                                    - Par défaut, elle est à : static l'element se positionne en fonction de comment on le met.
+
+                                    - Relative : permet de repositionner l'élement par rapport à où il est placé; 
+                                    en utilisant les propriétés : top, bottom, left, right==> Exemple :
+
+                                            style= "position: relative; top : 10px"
+
+                                    cela permet également de postionner les éléments "enfants " de manière abolue
+
+                                    - Absolute : ==> Exemple:
+                                            <table border="1" style="position:absolute;bottom:0px;width:100%;color:white; background:#6C829D;">
+                                                 - position:absolute= l'enfant "table" sera positionné de manière absolue dans la balise div
+                                                 - bottom = position en bas 
+                                                 - width= utilisation de 0 à 100 % de la taille du contenant div
+                                                 - #6C829D couleur de fond 
+                                                 si on rajoute #6C829DFF la couleur sera completement opaque
+                                                 si on rajoute #6C829D00 la couleur sera completement transparente
+                                                 si on rajoute #6C829DC0 la couleur sera environun peu plus que 50% transparente
+
+                                    Pour certains problèmes : en cas où l'image n'est pas totalement collée en bas de la balise div, PENSEZ  au DISPLAY : Block 
+
+                
+
+            
+            -->
+
+            <div class="infos"> <!--balise div qui lie image avec la table-->
+                <img class="centre info" src="https://jonathanroux.com/gateau.jpg? id=9998">
+            <!-- ASTUCE pour forcer le rechargement d'une image via une URL , le principe est d'écraser le cache du disque dur avec :  ?id=9999 
+                Exemple: 
+
+                src="https://jonathanroux.com/gateau.jpg?id=9999">
+            
+            -->    
+             
+                <table class="infos">
+
+                    <tr>
+                        <th>Difficulté</th>
+                        <th>Préparation </th>
+                        <th>Cuisson</th>
+                        <th>Temps total </th>
+                    </tr>
+                    <!-- Ajouter une ligne de données :-->
+
+                    <tr>
+                        <td>Facile</td>
+                        <td>10 min</td>
+                        <td>25 min</td>
+                        <td>35 min</td>
+                    </tr>
+
+                
+
+                </table> 
+        </div><!--fin de balise div qui lie image avec la table-->
+            
+        <div><!-- Cette balise sert à regrouper les deux        colonnes afin qu'on leur applique le overflow :auto (generique)-->
+            <div class="colonneIng colonne">
+            
+                <h2>Ingrédients </h2> 
+
+                    <div class =bordureIng>
+                            <!-- Exercice 294 bordure des ingrédients
+                            transformation de ul (liste sans ordre)  en div avec classe bordureIng
+                            transformation des li en p */-->
+                            
+                            <p >Chocolat noir : 200 g</p>
+                            <p >Sucre : 150 g</p>
+                            <p >Beurre : 200 g</p>
+                            <p >Oeufs : 4</p>
+                            <p >Farine: 80 g</p>
+
+                        
+
+                    </div> <!--Fin de la div class = bordureIng -->
+                    
+            </div> <!--Fin de la div class="colonneIng colonne"-->
+
+            <div class="colonnePré colonne">
+
+                <h2>Préparation </h2> 
+
+                <table class="tablePré">
+
+                    <!--
+                    Cours 295 : transformation de la liste ordonnée en table (Liste ordonnée==>  <ol> )-->
+                        <tr>
+                            <td><p class="numero">1</p></td>
+                            <td class="preparationEtap">Faire fondre le chocolat avec le beurre</td>
+                        </tr>
+                        <tr>
+                            <td><p class="numero">2</p></td>
+                            <td class="preparationEtap">Mélanger le sucre, les oeufs, la farine</td>
+                        </tr>
+                        <tr>
+                            <td><p class="numero">3</p></td>
+                            <td class="preparationEtap">Mélanger le tout pour faire une pâte</td>
+                        </tr>
+                        <tr>
+                            <td><p class="numero">4</p></td>
+                            <td class="preparationEtap">Mettre au four</td>
+                        </tr>
+                       
+                       
+                        
+                    </table>
+
+            </div><!--Fin de la div préparation -->
+        </div><!--Fin de la div regroupement overflow -->    
+        </div> <!--Fin de la div contenu -->  
+    </body>
+
+</html>
